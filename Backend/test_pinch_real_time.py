@@ -46,6 +46,7 @@ async def send_audio_loop(stream):
         await stream.send_pcm16(pcm_bytes, sample_rate=SAMPLE_RATE, channels=1)
 
 
+
 async def receive_events_loop(stream):
     """Pull transcript + audio events from Pinch and handle them."""
     async for event in stream.events():
