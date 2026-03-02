@@ -56,6 +56,9 @@ async def receive_events_loop(stream):
 
         elif event.type == "audio":
             # Queue translated audio for playback
+            if len(event.pcm16_bytes)>0:
+                print("🔊 Received audio chunk size:", len(event.pcm16_bytes))
+                break
             await audio_output_queue.put(event.pcm16_bytes)
 
 
